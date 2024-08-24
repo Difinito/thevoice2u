@@ -10,7 +10,7 @@ export class PrismaService
     super({
       datasources: {
         db: {
-          url: 'postgresql://thevoice2u_user:5bTMzFu1fsnD436C9p2dI91c1QHglmqp@dpg-cr4sd9tumphs73dsgrfg-a.oregon-postgres.render.com/thevoice2u',
+          url: 'postgresql://difinito:finito@localhost:5432/thevoice2you?schema=public',
         },
       },
     });
