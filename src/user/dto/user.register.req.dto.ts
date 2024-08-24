@@ -3,12 +3,12 @@ import { IsEmail, IsNotEmpty, Length, Matches } from 'class-validator';
 import { MESSAGES, REGEX } from '../../app.utils';
 
 export class UserDto {
-  @ApiProperty({
-    description: 'The name of the User',
-    example: 'Rabi Atiku',
-  })
-  @IsNotEmpty()
-  role: string;
+  // @ApiProperty({
+  //   description: 'The name of the User',
+  //   example: 'Rabi Atiku',
+  // })
+  // // @IsNotEmpty()
+  // role: string;
 
   @ApiProperty({
     description: 'The email address of the User',
@@ -29,47 +29,43 @@ export class UserDto {
   })
   password: string;
 
-  @ApiProperty({
-    description: 'The confirm password of the User',
-    example: 'Rabi@1234',
-  })
-  @IsNotEmpty()
-  country: string;
+  // @IsNotEmpty()
+  // country: string;
+
+  // // @IsNotEmpty()
+  // urlAvatar: string;
 
   // @IsNotEmpty()
-  urlAvatar: string;
+  // school: string;
 
-  @IsNotEmpty()
-  school: string;
-
-  @IsNotEmpty()
-  church: string;
-
-  @IsNotEmpty()
-  aboutYourself: string;
-  @IsNotEmpty()
-  isOnline: boolean;
-  @IsNotEmpty()
-  number: number;
-  @IsNotEmpty()
-  friends: string[];
   // @IsNotEmpty()
-  backgroundImage: string;
+  // church: string;
 
-  @IsNotEmpty()
-  name: string;
+  // @IsNotEmpty()
+  // aboutYourself: string;
+  // @IsNotEmpty()
+  // isOnline: boolean;
+  // @IsNotEmpty()
+  // number: number;
+  // @IsNotEmpty()
+  // friends: string[];
+  // // @IsNotEmpty()
+  // backgroundImage: string;
 
-  @IsNotEmpty()
-  username: string;
+  // @IsNotEmpty()
+  // name: string;
 
-  @IsNotEmpty()
-  gender: string;
+  // @IsNotEmpty()
+  // username: string;
 
-  @IsNotEmpty()
-  relationship: string;
-  @IsNotEmpty()
-  verified: boolean;
+  // @IsNotEmpty()
+  // gender: string;
 
-  @IsNotEmpty()
-  userId: string;
+  // @IsNotEmpty()
+  // relationship: string;
+  // @IsNotEmpty()
+  // verified: boolean;
+
+  // @IsNotEmpty()
+  // userId: string;
 }
