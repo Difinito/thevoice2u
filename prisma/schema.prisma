@@ -1,0 +1,162 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  hash      String
+  hashedRt  String?
+  email     String   @unique
+  role      UserRole @default(USER)
+  profile   Profile?
+
+  @@map("Users")
+}
+
+model Profile {
+  id              String        @id @default(cuid())
+  country         String
+  gender          String
+  username        String
+  number          String
+  aboutYourself   String
+  isOnline        Boolean
+  urlAvatar       String
+  backgroundImage String
+  church          String
+  relationship    String
+  friends         String[]
+  posts           Post[]
+  churchPage      ChurchPage[]
+  counsellor      Counsellors[]
+  pastorModel     Pastors[]
+  groupFamily     GroupFamily[]
+  verified        Boolean       @default(false)
+  user            User          @relation(fields: [userId], references: [id])
+  userId          String        @unique
+
+  @@map("Profile")
+}
+
+enum UserRole {
+  ADMIN
+  USER
+}
+
+model Post {
+  id          String   @id @default(cuid())
+  createdAt   DateTime @default(now())
+  description String
+  category    String
+  images      String[]
+  published   Boolean  @default(false)
+  likes       String[]
+  comments    String[]
+  author      Profile  @relation(fields: [authorId], references: [id])
+  authorId    String
+
+  @@map("Post")
+}
+
+model ChurchPage {
+  id               String             @id @default(uuid())
+  createdAt        DateTime           @default(now())
+  pageName         String
+  aboutPage        String
+  backgroundImage  String
+  pageImage        String
+  desciples        String[]
+  webstrings       String
+  published        Boolean            @default(false)
+  pageverified     Boolean
+  user             Profile            @relation(fields: [userId], references: [id])
+  userId           String
+  dailyAffirmation DailyAffirmation[]
+}
+
+model DailyAffirmation {
+  id                   String     @id @default(cuid())
+  topic                String
+  memorise             String
+  message              String
+  prayer               String
+  quote                String
+  adminId              String
+  dailyReading         String
+  propheticDeclaration String
+  dateTime             DateTime   @default(now())
+  page                 ChurchPage @relation(fields: [pageId], references: [id])
+  pageId               String
+
+  @@map("DailyAffirmation")
+}
+
+model Counsellors {
+  id        String   @id @default(cuid())
+  tag       String
+  followers String[]
+  about     String
+  approved  Boolean  @default(false)
+  dateTime  DateTime @default(now())
+  user      Profile  @relation(fields: [userId], references: [id])
+  userId    String
+
+  @@map("Counsellors")
+}
+
+model Pastors {
+  id          String         @id @default(cuid())
+  pastorName  String
+  biography   String
+  isApproved  Boolean
+  urlAvatar   String
+  verified    Boolean
+  user        Profile        @relation(fields: [userId], references: [id])
+  userId      String
+  pastorQuote PastorsQuote[]
+
+  @@map("Pastors")
+}
+
+model PastorsQuote {
+  id       String  @id @default(cuid())
+  image    String
+  user     Pastors @relation(fields: [pastorId], references: [id])
+  pastorId String
+
+  @@map("PastorQuotes")
+}
+
+model Faq {
+  id       String   @id @default(cuid())
+  answer   String
+  writeUp  String
+  dateTime DateTime
+
+  @@map("Faq")
+}
+
+model GroupFamily {
+  id            String   @id @default(uuid())
+  createdAt     DateTime @default(now())
+  groupName     String
+  groupAbout    String
+  urlImage      String
+  familyMembers String[]
+  rules         String[]
+  user          Profile  @relation(fields: [userId], references: [id])
+  userId        String
+}
