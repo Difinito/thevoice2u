@@ -19,6 +19,6 @@ async function bootstrap() {
   // await app.listen(port);
   // const port = process.env.DB_PORT || 3000;
 
-  await app.listen(3000);
+  await app.listen(process.env.DATABASE_URL || 3000);
 }
 bootstrap();
