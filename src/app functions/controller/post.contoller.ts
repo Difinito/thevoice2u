@@ -7,7 +7,7 @@ import {
   Post,
 } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
-import { Public } from 'src/user/decorators';
+import { Public } from '../../user/decorators';
 import { PostService } from '../services/post.service';
 import { PostDto } from '../dto/post.dto';
 

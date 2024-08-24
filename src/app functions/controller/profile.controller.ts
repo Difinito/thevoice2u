@@ -7,11 +7,10 @@ import {
   Post,
 } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
-import { Public } from 'src/user/decorators';
-import { PostService } from '../services/post.service';
-import { PostDto } from '../dto/post.dto';
+
 import { ProfileService } from '../services/profile.service';
-import { ProfileDto } from 'src/user/dto/profile.dto';
+import { Public } from '../../user/decorators';
+import { ProfileDto } from '../../user/dto/profile.dto';
 
 @ApiTags('Profile')
 @Controller('profile')

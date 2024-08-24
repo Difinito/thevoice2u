@@ -3,10 +3,10 @@ import { AuthService } from './auth.service';
 import { AuthController } from './auth.controller';
 import { JwtModule } from '@nestjs/jwt';
 import { AtStrategy, RtStrategy } from '../strategies';
-import { PostService } from 'src/app functions/services/post.service';
-import { PostController } from 'src/app functions/controller/post.contoller';
-import { ProfileController } from 'src/app functions/controller/profile.controller';
-import { ProfileService } from 'src/app functions/services/profile.service';
+import { ProfileController } from '../../app functions/controller/profile.controller';
+import { PostController } from '../../app functions/controller/post.contoller';
+import { PostService } from '../../app functions/services/post.service';
+import { ProfileService } from '../../app functions/services/profile.service';
 
 @Module({
   imports: [JwtModule.register({})],
