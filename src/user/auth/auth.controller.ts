@@ -18,7 +18,7 @@ import { GetCurrentUser, GetCurrentUserId, Public } from '../decorators';
 export class AuthController {
   constructor(private authService: AuthService) {}
 
-  // @Public()
+  @Public()
   @Get('AllUsers')
   async getUsers() {
     return this.authService.getAllUsers();
