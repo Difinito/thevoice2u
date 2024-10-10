@@ -10,7 +10,7 @@ export class PrismaService
     super({
       datasources: {
         db: {
-          url: 'postgres://default:f7AxwL8uqKEb@ep-frosty-frost-a403aws1-pooler.us-east-1.aws.neon.tech:5432/verceldb?sslmode=require&pgbouncer=true&connect_timeout=15',
+          url: 'postgres://default:l1G7exryQZfo@ep-little-salad-a404z2lg-pooler.us-east-1.aws.neon.tech:5432/verceldb?sslmode=require&pgbouncer=true&connect_timeout=15',
         },
       },
     });

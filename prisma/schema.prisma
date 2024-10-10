@@ -85,6 +85,8 @@ model ChurchPage {
   user             Profile            @relation(fields: [userId], references: [id])
   userId           String
   dailyAffirmation DailyAffirmation[]
+
+  @@map("ChurchPage")
 }
 
 model DailyAffirmation {
@@ -144,7 +146,7 @@ model Faq {
   id       String   @id @default(cuid())
   answer   String
   writeUp  String
-  dateTime DateTime
+  dateTime DateTime @default(now())
 
   @@map("Faq")
 }
@@ -159,4 +161,6 @@ model GroupFamily {
   rules         String[]
   user          Profile  @relation(fields: [userId], references: [id])
   userId        String
+
+  @@map("GroupFamily")
 }

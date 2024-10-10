@@ -1,6 +1,6 @@
 import { IsNotEmpty } from 'class-validator';
 
-export class PostorDto {
+export class GroupDto {
   @IsNotEmpty({ message: 'The description should not be empty' })
   groupName: string;
 

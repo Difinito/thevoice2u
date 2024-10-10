@@ -16,6 +16,11 @@ export class ChurchPageService {
     return churchPage;
   }
 
+  async getAllChurch() {
+    const churchPage = await this.prismaService.churchPage.findMany({});
+    return churchPage;
+  }
+
   async createChurch(churchPage: ChurchPageDto) {
     const newChurchPage = await this.prismaService.churchPage.create({
       data: {

@@ -1,4 +1,4 @@
-import { IsNotEmpty, Length } from 'class-validator';
+import { IsNotEmpty } from 'class-validator';
 
 export class DailyAffirmationDto {
   @IsNotEmpty({ message: 'The description should not be empty' })
@@ -24,4 +24,7 @@ export class DailyAffirmationDto {
 
   @IsNotEmpty()
   pageId: string;
+
+  @IsNotEmpty()
+  adminId: string;
 }
